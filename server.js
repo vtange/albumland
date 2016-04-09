@@ -31,7 +31,7 @@ app.use(bodyParser.json())    // parse application/json
 app.use(methodOverride());                  // simulate DELETE and PUT
 
 // required for passport
-app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(session({ secret: 'albummakers' })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session

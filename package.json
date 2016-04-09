@@ -1,8 +1,8 @@
 {
-  "name": "newapp",
-  "title": "NewApp",
+  "name": "albumland",
+  "title": "Album Land",
   "version": "1.0.0",
-  "description": "New App Goodness",
+  "description": "Collect images to make albums of related images",
   "scripts": {
     "start": "node server.js"
   },
