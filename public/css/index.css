@@ -147,3 +147,12 @@ body, .btn, #header > #group1 > a{
 	background-color:#444;
 	color:white;
 }
+.add-poll-btn{
+	text-align:center;
+}
+.big-plus{
+	position: absolute;
+	font-size: 10em;
+	line-height: 0.5em;
+	margin:0;
+}

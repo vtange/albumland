@@ -5,6 +5,8 @@
     <title>Home</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script> <!-- load angular -->
+	<script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script> <!-- load masonry -->
     <link rel="stylesheet" href="css/index.css"> <!-- load fontawesome -->
 </head>
 <body>
@@ -23,16 +25,7 @@
 			<div class="caption">lorem ipsum gallum</div>
 			</div>
 			<div class="image" data-ng-repeat="link in blah" data-ng-style="getImage(link)">
-			<!--image goes here-->
-			<div class="caption">lorem ipsum gallum</div>
-			</div>
-			<div class="image" data-ng-repeat="link in blah" data-ng-style="getImage(link)">
-			<!--image goes here-->
-			<div class="caption">lorem ipsum gallum</div>
-			</div>
-			<div class="image" data-ng-repeat="link in blah" data-ng-style="getImage(link)">
-			<!--image goes here-->
-			<div class="caption">lorem ipsum gallum</div>
+				<div id="add-img-placeholder"><p class="big-plus vert-centered">+</p></div>
 			</div>
 		</div>
 	</div>
