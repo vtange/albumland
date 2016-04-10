@@ -9,9 +9,20 @@
 </head>
 <body>
 <%- include ../node_modules/basic-login-bar/views/partials/header.ejs %>
-<div class="container">
-
-
-</div>
+	<div id="folders">
+		<ul>
+			<div><li>Blah</li></div>
+			<div><li>Blah</li></div>
+			<div><li>Bewafwafwefwafewflah</li></div>
+		</ul>
+	</div>
+	<div class="container">
+		<div id="gallery">
+			<div class="image" data-ng-repeat="link in blah" data-ng-style="getImage(link)">
+			<!--image goes here-->
+			<div class="caption">lorem ipsum gallum</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

@@ -4,6 +4,9 @@
 a{
 	color:inherit;
 }
+ul{
+	margin: 0;
+}
 /* background image */
 body {
     margin: 0;/*reset page*/
@@ -74,22 +77,68 @@ body, .btn, #header > #group1 > a{
 }
 
 /* CUSTOM */
-
-#footer{
-	height:70px;
-	position: fixed;
-	left:0;
-	bottom: 0;
-	width:100%;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	background-color: #ca8;
-	border:3px solid #654b26;
-	border-bottom: 0px;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
+#folders{
+	background-color: coral;
 }
-#footer .btn{
-	margin-left:10px;
+#folders > ul{
+	display: flex;
+	flex-direction: row;
+}
+#folders li{
+	font-size: 2rem;
+	
+	position: relative;
+	display:block;
+	background-color: #FFF;
+	border-top: 1px solid blue;
+	z-index: 3;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+#folders li:before, #folders li:after{
+    display: block;
+    content:" ";
+    width: 40px;
+    height: 104%;
+    top: -1px;
+    background-color: #FFF;
+    position: absolute;
+    z-index: -1;
+}
+#folders li:before{
+    left: -20px;
+	border-left: 1px solid blue;
+	border-top: 1px solid blue;
+	border-top-left-radius: 5px;
+    transform:skewX(-35deg);
+    -ms-transform:skewX(-35deg);
+    -webkit-transform:skewX(-35deg);
+}
+#folders li:after{
+    right: -20px;
+	border-right: 1px solid blue;
+	border-top: 1px solid blue;
+	border-top-right-radius: 5px;
+    transform:skewX(35deg);
+    -ms-transform:skewX(35deg);
+    -webkit-transform:skewX(35deg);
+}
+#gallery{
+	display: flex;
+	flex-wrap: wrap;
+}
+.image{
+	position: relative;
+	height: 100px;
+	width:200px;
+	background-color:#0f0;
+}
+.caption{
+	position:absolute;
+	bottom:0;
+	height:2em;
+	width:100%;
+	opacity: 0.7;
+	background-color:#444;
+	color:white;
 }
