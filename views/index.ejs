@@ -6,12 +6,16 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script> <!-- load angular -->
+	<script src="app.js"></script> <!-- load angular app -->
+	<script src="services.js"></script> <!-- load user service -->
+	<script src="controllers.js"></script> <!-- load angular controllers -->
 	<script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script> <!-- load masonry -->
-    <link rel="stylesheet" href="css/index.css"> <!-- load fontawesome -->
+	<script src="lib/angular-masonry-directive.js"></script> <!-- load masonry angular -->
+    <link rel="stylesheet" href="css/index.css"> <!-- load styles -->
 </head>
-<body>
+<body data-ng-app="AlbumApp" data-ng-controller="autoLogger" data-ng-init="package = <%= packagedUser %>;init(package)">
 <%- include ../node_modules/basic-login-bar/views/partials/header.ejs %>
-	<div class="container">
+	<div class="container" data-ng-controller="MainCtrl">
 		<div id="folders">
 			<ul>
 				<li>Blah</li>
@@ -19,12 +23,12 @@
 				<li class="active">Bewafwafwefwafewflah</li>
 			</ul>
 		</div>
-		<div id="gallery">
-			<div class="image" data-ng-repeat="link in blah" data-ng-style="getImage(link)">
+		<div id="gallery" class="grid">
+			<div class="grid-item" data-ng-repeat="link in currentGallery" data-ng-style="getImage(link)">
 			<!--image goes here-->
 			<div class="caption">lorem ipsum gallum</div>
 			</div>
-			<div class="image" data-ng-repeat="link in blah" data-ng-style="getImage(link)">
+			<div class="grid-item">
 				<div id="add-img-placeholder"><p class="big-plus vert-centered">+</p></div>
 			</div>
 		</div>
