@@ -39,7 +39,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // set up client files
 app.set('view engine', 'ejs'); 
 app.use(express.static(__dirname + '/public'));     // set the static files location /public/img will be /img for users
-
+app.use('/masonry', express.static(__dirname + '/node_modules/angular-masonry/'));
 // set up our routes
 require('./app/routes.js')(app); // use "/" from own /app/routes.js
 require('basic-login-bar')(app,session,passport);

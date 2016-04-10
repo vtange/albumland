@@ -5,6 +5,7 @@ angular.module('AlbumApp').controller('autoLogger',['$scope', 'ActiveUser',funct
 	
 	//used to transfer server data to client
 	$scope.init = function(package) {
+		console.log(package);
 		ActiveUser.user = package[0];
 	};
 
@@ -14,5 +15,5 @@ angular.module('AlbumApp').controller('autoLogger',['$scope', 'ActiveUser',funct
 /*Page Specific Controls - Galleries   */
 /*-------------*/
 angular.module('AlbumApp').controller('MainCtrl', ['$scope', function($scope){
-    $scope.currentGallery = [];
+    $scope.currentGallery = ["alpha","beta","delta","phi","gamma","theta"];
 }]);//end of controller

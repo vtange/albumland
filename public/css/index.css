@@ -151,11 +151,10 @@ body, .btn, {
 	box-shadow: 3px 1px 4px rgba(0,0,0,0.2);
 	z-index: 5;
 }
-.image{
+.masonry-brick{
 	position: relative;
 	height: 200px;
 	width:200px;
-	
 	margin: 2rem;
 	background-color:#0f0;
 }
