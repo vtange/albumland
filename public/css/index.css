@@ -124,7 +124,7 @@ body, .btn, {
 #folders li:before{
     left: -20px;
 	border-top-left-radius: 5px;
-	box-shadow: -2px 0px 2px rgba(0,0,0,0.1);
+	box-shadow: -4px 0px 2px -2px rgba(0,0,0,0.1);
     transform:skewX(-35deg);
     -ms-transform:skewX(-35deg);
     -webkit-transform:skewX(-35deg);
@@ -132,10 +132,13 @@ body, .btn, {
 #folders li:after{
     right: -20px;
 	border-top-right-radius: 5px;
-	box-shadow: 3px 0px 2px rgba(0,0,0,0.2);
+	box-shadow: 4px 0px 2px -2px rgba(0,0,0,0.2);
     transform:skewX(35deg);
     -ms-transform:skewX(35deg);
     -webkit-transform:skewX(35deg);
+}
+#folders .active{
+    z-index: 9;
 }
 /*FOLDER SYSTEM*/
 #gallery{
