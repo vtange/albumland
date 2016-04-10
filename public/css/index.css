@@ -86,11 +86,12 @@ body, .btn, #header > #group1 > a{
 }
 #folders li{
 	font-size: 2rem;
+	padding: 5px;
 	
 	position: relative;
 	display:block;
 	background-color: #FFF;
-	border-top: 1px solid blue;
+	box-shadow: 0px -2px 2px rgba(0,0,0,0.1);
 	z-index: 3;
 	margin-left: 20px;
 	margin-right: 20px;
@@ -99,26 +100,24 @@ body, .btn, #header > #group1 > a{
     display: block;
     content:" ";
     width: 40px;
-    height: 104%;
-    top: -1px;
+    height: 100%;
+	top:0;
     background-color: #FFF;
     position: absolute;
     z-index: -1;
 }
 #folders li:before{
     left: -20px;
-	border-left: 1px solid blue;
-	border-top: 1px solid blue;
 	border-top-left-radius: 5px;
+	box-shadow: -3px 0px 2px rgba(0,0,0,0.2);
     transform:skewX(-35deg);
     -ms-transform:skewX(-35deg);
     -webkit-transform:skewX(-35deg);
 }
 #folders li:after{
     right: -20px;
-	border-right: 1px solid blue;
-	border-top: 1px solid blue;
 	border-top-right-radius: 5px;
+	box-shadow: 3px 0px 2px rgba(0,0,0,0.2);
     transform:skewX(35deg);
     -ms-transform:skewX(35deg);
     -webkit-transform:skewX(35deg);
