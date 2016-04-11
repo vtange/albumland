@@ -21,7 +21,7 @@
 	<div class="container" data-ng-controller="MainCtrl">
 		<div id="folders">
 			<ul>
-				<li class="active">Bewafwafwefwafewflah</li>
+				<li class="active" data-ng-repeat="name in galleries">{{name}}</li>
 				<li id="new-gallery-btn" data-ng-click="newGallForm()">
 					<form  data-ng-style="widenForm()" data-ng-submit="newGall()">
 						<input data-ng-style="showInput()" data-ng-click="preventClose($event)" type="text" class="form-control" data-ng-model="gallEdits.newGall" placeholder="New Gallery Name">

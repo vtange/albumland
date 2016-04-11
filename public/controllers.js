@@ -14,7 +14,7 @@ angular.module('AlbumApp').controller('autoLogger',['$scope', 'ActiveUser',funct
 /*-------------*/
 /*Page Specific Controls - Galleries   */
 /*-------------*/
-angular.module('AlbumApp').controller('MainCtrl', ['$scope', function($scope){
+angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window', "ActiveUser", function($scope, $http, $window, ActiveUser){
 	/* STYLE */
 	/* ng-style = widen form when new Gall mode */
 	$scope.widenForm = function(){
@@ -46,6 +46,12 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', function($scope){
 	
 	/* STATE */ 
 	$scope.newGallMode = false;
+
+	/* ng model for forms */
+	$scope.gallEdits = {
+		newGall:""
+	}
+
 	/* FUNCTIONS */
 	/* toggle new gallery form */
 	$scope.newGallForm = function(){
@@ -54,19 +60,21 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', function($scope){
 		}
 		else{
 			$scope.newGallMode = false;
+			$scope.gallEdits.newGall = "";
 		}
 	}
-	/* toggle new gallery form */
+	/* prevent ng-click from going up to parent elements */
 	$scope.preventClose = function($event){
 		$event.stopPropagation() 
 	}
 	/* submit new gallery form */
 	$scope.newGall = function(){
-		
-	}
-	/* ng model for forms */
-	$scope.gallEdits = {
-		newGall:""
+		$http.post($window.location.href+'newGall',$scope.gallEdits).success(function(data){
+			console.log(data);
+			$scope.galleries.push(data.name);
+		}).error(function(data){
+			console.error("Something wrong happened while making your new gallery.");
+		});
 	}
 	
 	
@@ -75,12 +83,6 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', function($scope){
 		
 	}	
 	
-	
-	
-	
-	
-	
-	
-	
+	$scope.galleries = ["First Album"];
     $scope.currentGallery = ["alpha","beta","delta","phi","gamma","theta"];
 }]);//end of controller

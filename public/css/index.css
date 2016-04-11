@@ -223,4 +223,5 @@ body, .btn, {
 	font-size: 10em;
 	line-height: 0.5em;
 	margin:0;
+	cursor: pointer;
 }
