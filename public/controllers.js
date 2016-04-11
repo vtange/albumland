@@ -55,16 +55,27 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 			return { "left":"1rem", "transform":"rotate(45deg)" };
 		}
 	}
-	
+	/* ng-style = rotate plus when new Gall mode */
+	$scope.textArea = function(){
+		if(!$scope.newImgMode){
+			return { "opacity":0.0 };
+		}
+		else{
+			return { "opacity":1 };
+		}
+	}
 	/* STATE */ 
 	$scope.newGallMode = false;
+	$scope.newImgMode = false;
 
 	/* ng model for forms */
 	$scope.gallEdits = {
-		newGall:""
+		newGall:"",
+		newImg:""
 	}
 	$scope.galleries = ActiveUser.user.galleries;
     $scope.currentGallery = $scope.galleries[0].pics;
+
 	/* FUNCTIONS */
 	/* toggle new gallery form */
 	$scope.newGallForm = function(){
@@ -75,6 +86,17 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 			$scope.newGallMode = false;
 			$scope.gallEdits.newGall = "";
 		}
+	}
+	/* toggle new img form */
+	$scope.newImgForm = function(){
+		if(!$scope.newImgMode){
+			$scope.newImgMode = true;
+		}
+	}
+	/* toggle new img form if click out*/
+	$scope.resetImgForm = function(){
+		$scope.newImgMode = false;
+		$scope.gallEdits.newImg = "";
 	}
 	/* prevent ng-click from going up to parent elements */
 	$scope.preventClose = function($event){
@@ -88,11 +110,10 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 			console.error("Something wrong happened while making your new gallery.");
 		});
 	}
-	
-	
+
 	/* toggle new img link form */
 	$scope.newImgLink = function(){
-		
+
 	}	
 
 }]);//end of controller
