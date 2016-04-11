@@ -141,21 +141,29 @@ body, .btn, {
     z-index: 9;
 }
 /*FOLDER SYSTEM*/
-#gallery{
-	display: flex;
-	flex-wrap: wrap;
+#grid[data-columns]::before {
+	content: '3 .column.size-1of3';
+}
 
+/* These are the classes that are going to be applied: */
+.column { 
+	float: left;
+}
+.size-1of4 { 
+	width: 25%;
+}
+/* ^ needed for Salvattore */
+#gallery{
 	position: relative;
+	overflow: auto;
 	padding-top: 5rem;
 	border-radius: 20px;
 	box-shadow: 3px 1px 4px rgba(0,0,0,0.2);
 	z-index: 5;
 }
-.masonry-brick{
+.image{
 	position: relative;
 	height: 200px;
-	width:200px;
-	margin: 2rem;
 	background-color:#0f0;
 }
 .caption{

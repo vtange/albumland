@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script> <!-- load angular -->
+	<script
+			  src="https://code.jquery.com/jquery-2.2.3.min.js"
+			  integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
+			  crossorigin="anonymous"></script>
+	<script src="lib/salvattore.min.js"></script> <!-- load angular app -->
 	<script src="app.js"></script> <!-- load angular app -->
 	<script src="services.js"></script> <!-- load user service -->
 	<script src="controllers.js"></script> <!-- load angular controllers -->
@@ -21,11 +26,11 @@
 				<li class="active">Bewafwafwefwafewflah</li>
 			</ul>
 		</div>
-		<div id="gallery">
-			<div  class="masonry-brick">
+		<div id="gallery" data-columns>
+			<div class="column size-1of4 image">
 				<div id="add-img-placeholder"><p class="big-plus vert-centered">+</p></div>
 			</div>
-			<div class="masonry-brick" data-ng-repeat="link in currentGallery">
+			<div class="column size-1of4 image" data-ng-repeat="link in currentGallery">
 			<!--image goes here-->
 				<div class="caption">lorem ipsum gallum</div>
 			</div>
