@@ -9,11 +9,13 @@ module.exports = function(app) {
     // =====================================
     app.get('/', function(req, res) {
 		if(req.user){
-			res.render('index.ejs', {
-				title: app.title,
-				user : req.user, // get the user out of session and pass to template
-				packagedUser : JSON.stringify([req.user]) //send user info to angular
-			}); // load the index.ejs file
+			User.findById(req.user.id).populate('galleries').exec(function(err,user){
+				res.render('index.ejs', {
+					title: app.title,
+					user : req.user, // get the user out of session and pass to template
+					packagedUser : JSON.stringify([user]) //send user info to angular
+				}); // load the index.ejs file
+			});
 		}
 		else{
 			res.render('frontpage.ejs', {

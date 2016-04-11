@@ -65,7 +65,7 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 		newGall:""
 	}
 	$scope.galleries = ActiveUser.user.galleries;
-    $scope.currentGallery = ["alpha","beta","delta","phi","gamma","theta"];
+    $scope.currentGallery = $scope.galleries[0].pics;
 	/* FUNCTIONS */
 	/* toggle new gallery form */
 	$scope.newGallForm = function(){

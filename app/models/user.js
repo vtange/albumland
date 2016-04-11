@@ -3,6 +3,7 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
 var gravatar = require('gravatar');
+var Gallery = require('./gallery.js');
 
 // define the schema for our user model
 var userSchema = mongoose.Schema({
@@ -57,6 +58,9 @@ userSchema.pre('save', function(next) {
 		var gall = new Gallery();
 		gall.name = "First Gallery";
 		gall.pics = [];
+		gall.save(function(err){
+			if(err) throw err;
+		});
 		this.galleries.push(gall);
 	}
 	next();
