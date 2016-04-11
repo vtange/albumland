@@ -21,7 +21,7 @@ module.exports = function(app) {
 		else{
 			//render index page with "recent stuff" galleries
 			var galleries;
-			res.render('frontpage.ejs', {
+			res.render('viewonly.ejs', {
 				title: app.title,
 				user : req.user, // get the user out of session and pass to template
 				package : JSON.stringify([req.user]) //send info to angular
@@ -32,7 +32,7 @@ module.exports = function(app) {
     // SOMEONE'S PAGE ========
     // =====================================
     app.get('/see/:USERNAME', function(req, res) {
-		User.findOne({'local.username': req.params.USERNAME },function(err,user){
+		User.findOne({'local.username': req.params.USERNAME }).populate('galleries').exec(function(err,user){
 			console.log(user);
 			if(!user){
 				//render 404 page
@@ -40,7 +40,11 @@ module.exports = function(app) {
 			}
 			else{
 				if(!req.user){
-					res.send("checked other user");
+					res.render('viewonly.ejs', {
+						title: app.title,
+						user : req.user, // get the user out of session and pass to template
+						package : JSON.stringify([user]) //send info to angular
+					}); // load the index.ejs file
 				}
 				else{
 					console.log(req.user.local.username);
