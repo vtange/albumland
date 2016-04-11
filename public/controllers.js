@@ -37,7 +37,7 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 			return { "width":"200px" };
 		}
 	}
-	/* ng-style = widen form when new Gall mode */
+	/* ng-style = prevent "[]" form since it has padding and border */
 	$scope.showInput = function(){
 		if(!$scope.newGallMode){
 			return { "padding":"0", "border":"0" };
@@ -64,7 +64,7 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 			return { "opacity":1 };
 		}
 	}
-	/* ng-style = rotate plus when new Gall mode */
+	/* ng-style = stock background with plus */
 	$scope.stockBkgrd = function(){
 		if(!$scope.newImgMode){
 			return { "background-image":"url(../img/img_icon.png)" };
