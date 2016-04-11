@@ -89,4 +89,25 @@ module.exports = function(app) {
 		//	res.redirect('/');
 		//}
 	});
+    // =====================================
+    // NEW IMAGE ========
+    // =====================================
+    app.post('/newImg', function(req, res) {
+		//if(req.user){
+			var user = req.user;
+			User.findById(req.user.id).populate('galleries').exec(function(err,user){
+				//push string url
+				user.galleries[req.body.currIndex].pics.push(req.body.newImg);
+				//save gallery
+				user.galleries[req.body.currIndex].save(function(err){
+					if(err)
+						throw err;
+					res.send(req.body.newImg);
+				});
+			});
+		//}
+		//else{
+		//	res.redirect('/');
+		//}
+	});
 };
