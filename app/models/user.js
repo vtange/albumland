@@ -33,7 +33,6 @@ var userSchema = mongoose.Schema({
         email        : String,
         name         : String
     }
-
 });
 
 // methods ======================
@@ -52,6 +51,16 @@ userSchema.methods.generateGravatar = function(email) {
     return gravatar.url(email, {s: '200', r: 'pg', d: '404'});
 };
 
+userSchema.pre('save', function(next) {
+    // if galleries is empty, push a mock first gallery
+	if (!this.galleries.length){
+		var gall = new Gallery();
+		gall.name = "First Gallery";
+		gall.pics = [];
+		this.galleries.push(gall);
+	}
+	next();
+});
 
 // create the model for users and expose it to our app
 module.exports = mongoose.model('User', userSchema);

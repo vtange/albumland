@@ -51,7 +51,8 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 	$scope.gallEdits = {
 		newGall:""
 	}
-
+	$scope.galleries = ["First Album"];
+    $scope.currentGallery = ["alpha","beta","delta","phi","gamma","theta"];
 	/* FUNCTIONS */
 	/* toggle new gallery form */
 	$scope.newGallForm = function(){
@@ -70,7 +71,6 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 	/* submit new gallery form */
 	$scope.newGall = function(){
 		$http.post($window.location.href+'newGall',$scope.gallEdits).success(function(data){
-			console.log(data);
 			$scope.galleries.push(data.name);
 		}).error(function(data){
 			console.error("Something wrong happened while making your new gallery.");
@@ -82,7 +82,5 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 	$scope.newImgLink = function(){
 		
 	}	
-	
-	$scope.galleries = ["First Album"];
-    $scope.currentGallery = ["alpha","beta","delta","phi","gamma","theta"];
+
 }]);//end of controller
