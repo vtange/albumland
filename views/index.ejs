@@ -9,11 +9,6 @@
 	<script src="app.js"></script> <!-- load angular app -->
 	<script src="services.js"></script> <!-- load user service -->
 	<script src="controllers.js"></script> <!-- load angular controllers -->
-	<script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
-	<script src="masonry/node_modules/jquery-bridget/jquery-bridget.js"></script> <!-- load jquery bridget -->
-	<script src="masonry/node_modules/masonry-layout/masonry.js"></script> <!-- load jquery bridget -->
-	<script src="masonry/node_modules/imagesloaded/imagesloaded.pkgd.min.js"></script> <!-- load imgloaded -->
-	<script src="masonry/angular-masonry.min.js"></script> <!-- load masonry angular -->
     <link rel="stylesheet" href="css/index.css"> <!-- load styles -->
 </head>
 <body data-ng-app="AlbumApp" data-ng-controller="autoLogger" data-ng-init="package = <%= packagedUser %>;init(package)">
@@ -26,7 +21,7 @@
 				<li class="active">Bewafwafwefwafewflah</li>
 			</ul>
 		</div>
-		<div id="gallery" masonry>
+		<div id="gallery">
 			<div  class="masonry-brick">
 				<div id="add-img-placeholder"><p class="big-plus vert-centered">+</p></div>
 			</div>

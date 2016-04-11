@@ -1,1 +1,1 @@
-var app = angular.module('AlbumApp', ['wu.masonry']);
+var app = angular.module('AlbumApp', []);
