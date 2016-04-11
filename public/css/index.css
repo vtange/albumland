@@ -199,15 +199,47 @@ body, .btn, {
 /* frame for image */
 .image-container{
 	position: relative;
-	background-color:#0f0;
 	padding: 2rem;
 }
 /* actual image */
 .img{
+	position: relative;
 	height: 200px;	/* TEMPORARY, would be determined by pic */
 	width:100%;
-	background-color:#00f;
-	
+	background-color:#dededd;
+	cursor: pointer;
+	border-radius:2px;
+	box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+}
+.img form{
+	position: relative;
+	height: 100%;
+}
+.img .form-control:focus{  
+	border-color: rgba(126, 239, 104, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 10px rgba(100, 200, 100, 0.6);
+    outline: 0 none;
+}
+.img textarea{
+	background-color: inherit;
+	height:100%;
+	resize: none;
+	color
+}
+.img textarea::-webkit-input-placeholder {
+   color: darkgreen;
+}
+
+.img textarea:-moz-placeholder { /* Firefox 18- */
+   color: darkgreen;  
+}
+
+.img textarea::-moz-placeholder {  /* Firefox 19+ */
+   color: darkgreen;  
+}
+
+.img textarea:-ms-input-placeholder {  
+   color: darkgreen;  
 }
 /* caption under images */
 .caption{

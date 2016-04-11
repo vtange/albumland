@@ -32,7 +32,12 @@
 		</div>
 		<div id="gallery" data-columns>
 			<div class="column size-1of4 image-container">
-				<div class="img" data-ng-click="newImgLink()"><p class="big-plus vert-centered">+</p></div>
+				<div class="img" data-ng-click="newImgForm()">
+					<p class="big-plus vert-centered">+</p>
+					<form data-ng-submit="newImg()">
+						<textarea data-ng-click="preventClose($event)" class="form-control" data-ng-model="gallEdits.newImg" placeholder="Paste a link to an image"></textarea>
+					</form>
+				</div>
 			</div>
 			<div class="column size-1of4 image-container" data-ng-repeat="link in currentGallery">
 				<div class="img"></div>
