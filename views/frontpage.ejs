@@ -16,24 +16,15 @@
 	<script src="controllers.js"></script> <!-- load angular controllers -->
     <link rel="stylesheet" href="css/index.css"> <!-- load styles -->
 </head>
-<body data-ng-app="AlbumApp" data-ng-controller="autoLogger" data-ng-init="package = <%= packagedUser %>;init(package)">
+<body data-ng-app="AlbumApp" data-ng-controller="autoLogger" data-ng-init="package = <%= package %>;init(package)">
 <%- include ../node_modules/basic-login-bar/views/partials/header.ejs %>
-	<div class="container" data-ng-controller="MainCtrl">
+	<div class="container" data-ng-controller="FrontCtrl">
 		<div id="folders">
 			<ul>
 				<li class="active" data-ng-repeat="gallery in galleries">{{gallery.name}}</li>
-				<li id="new-gallery-btn" data-ng-click="newGallForm()">
-					<form  data-ng-style="widenForm()" data-ng-submit="newGall()">
-						<input data-ng-style="showInput()" data-ng-click="preventClose($event)" type="text" class="form-control" data-ng-model="gallEdits.newGall" placeholder="New Gallery Name">
-					</form>
-					<div data-ng-style="rotatePlus()">+</div>
-				</li>
 			</ul>
 		</div>
 		<div id="gallery" data-columns>
-			<div class="column size-1of4 image-container">
-				<div class="img" data-ng-click="newImgLink()"><p class="big-plus vert-centered">+</p></div>
-			</div>
 			<div class="column size-1of4 image-container" data-ng-repeat="link in currentGallery">
 				<div class="img"></div>
 				<div class="caption">lorem ipsum gallum</div>

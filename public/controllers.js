@@ -12,6 +12,19 @@ angular.module('AlbumApp').controller('autoLogger',['$scope', 'ActiveUser',funct
 }]);
 
 /*-------------*/
+/*Page Specific Controls - Front Page   */
+/*-------------*/
+angular.module('AlbumApp').controller('FrontCtrl', ['$scope', function($scope){
+
+	/* STATE */ 
+
+	$scope.galleries = [{name:"Recently Added"}];
+    $scope.currentGallery = ["alpha","beta","delta","phi","gamma","theta"];
+
+}]);//end of controller
+
+
+/*-------------*/
 /*Page Specific Controls - Galleries   */
 /*-------------*/
 angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window', "ActiveUser", function($scope, $http, $window, ActiveUser){
@@ -51,7 +64,7 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 	$scope.gallEdits = {
 		newGall:""
 	}
-	$scope.galleries = ["First Album"];
+	$scope.galleries = ActiveUser.user.galleries;
     $scope.currentGallery = ["alpha","beta","delta","phi","gamma","theta"];
 	/* FUNCTIONS */
 	/* toggle new gallery form */
