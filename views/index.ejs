@@ -27,11 +27,11 @@
 			</ul>
 		</div>
 		<div id="gallery" data-columns>
-			<div class="column size-1of4 image">
-				<div id="add-img-placeholder"><p class="big-plus vert-centered">+</p></div>
+			<div class="column size-1of4 image-container">
+				<div class="img"><p class="big-plus vert-centered">+</p></div>
 			</div>
-			<div class="column size-1of4 image" data-ng-repeat="link in currentGallery">
-			<!--image goes here-->
+			<div class="column size-1of4 image-container" data-ng-repeat="link in currentGallery">
+				<div class="img"></div>
 				<div class="caption">lorem ipsum gallum</div>
 			</div>
 		</div>
