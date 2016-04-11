@@ -165,11 +165,11 @@ body, .btn, {
 #new-gallery-btn input{
 	/* follow width of form, show when activated */
 	width:100%;
-	opacity: 0;
-	visibility: hidden;
+	padding: 6px 12px;
+	border:1px solid #ccc;
 	/* when activated 
-	opacity: 1;
-	visibility: visible;
+	padding: 0;
+	border: 0;
 	*/
 }
 

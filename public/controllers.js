@@ -28,10 +28,10 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', function($scope){
 	/* ng-style = widen form when new Gall mode */
 	$scope.showInput = function(){
 		if(!$scope.newGallMode){
-			return {};
+			return { "padding":"0", "border":"0" };
 		}
 		else{
-			return { "opacity": 1, "visibility": "visible" };
+			return {};
 		}
 	}
 	/* ng-style = rotate plus when new Gall mode */
@@ -40,7 +40,7 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', function($scope){
 			return {};
 		}
 		else{
-			return { "left":"1rem", "transform": "rotate(45deg)" };
+			return { "left":"1rem", "transform":"rotate(45deg)" };
 		}
 	}
 	
@@ -55,6 +55,10 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', function($scope){
 		else{
 			$scope.newGallMode = false;
 		}
+	}
+	/* toggle new gallery form */
+	$scope.preventClose = function($event){
+		$event.stopPropagation() 
 	}
 	/* submit new gallery form */
 	$scope.newGall = function(){

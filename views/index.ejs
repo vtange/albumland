@@ -24,7 +24,7 @@
 				<li class="active">Bewafwafwefwafewflah</li>
 				<li id="new-gallery-btn" data-ng-click="newGallForm()">
 					<form  data-ng-style="widenForm()" data-ng-submit="newGall()">
-						<input data-ng-style="showInput()" type="text" class="form-control" data-ng-model="gallEdits.newGall" placeholder="New Gallery Name">
+						<input data-ng-style="showInput()" data-ng-click="preventClose($event)" type="text" class="form-control" data-ng-model="gallEdits.newGall" placeholder="New Gallery Name">
 					</form>
 					<div data-ng-style="rotatePlus()">+</div>
 				</li>
