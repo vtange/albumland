@@ -215,7 +215,8 @@ body, .btn, {
 	cursor: pointer;
 }
 .img img{
-	width:90%;
+	text-align: center;
+	width:45%;
 }
 .img form{
 	position: relative;
