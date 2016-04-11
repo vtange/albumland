@@ -55,7 +55,7 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 			return { "left":"1rem", "transform":"rotate(45deg)" };
 		}
 	}
-	/* ng-style = rotate plus when new Gall mode */
+	/* ng-style = show hide text area for new img link */
 	$scope.textArea = function(){
 		if(!$scope.newImgMode){
 			return { "opacity":0.0 };
@@ -64,6 +64,16 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 			return { "opacity":1 };
 		}
 	}
+	/* ng-style = rotate plus when new Gall mode */
+	$scope.stockBkgrd = function(){
+		if(!$scope.newImgMode){
+			return { "background-image":"url(../img/img_icon.png)" };
+		}
+		else{
+			return { "background-image":"none" };
+		}
+	}
+
 	/* STATE */ 
 	$scope.newGallMode = false;
 	$scope.newImgMode = false;

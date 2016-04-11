@@ -206,10 +206,14 @@ body, .btn, {
 	position: relative;
 	height: 200px;	/* TEMPORARY, would be determined by pic */
 	width:100%;
-	background-color:#dededd;
-	cursor: pointer;
 	border-radius:2px;
 	box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+	
+	background-color:#dededd;
+	background-position: center;
+	background-size: 45%;
+	background-repeat: no-repeat;
+	cursor: pointer;
 }
 .img form{
 	position: relative;
@@ -252,8 +256,12 @@ body, .btn, {
 }
 .big-plus{
 	position: absolute;
-	font-size: 10em;
+	top:15%;
+	right:15%;
+	font-size: 8em;
 	line-height: 0.5em;
 	margin:0;
 	cursor: pointer;
+	
+	color:darkgreen;
 }
