@@ -21,9 +21,13 @@
 	<div class="container" data-ng-controller="MainCtrl">
 		<div id="folders">
 			<ul>
-				<li>Blah</li>
-				<li>Blah</li>
 				<li class="active">Bewafwafwefwafewflah</li>
+				<li id="new-gallery-btn" data-ng-click="newGallForm()">
+					<form  id="form" data-ng-submit="">
+						<input type="text" name="townname" class="form-control" data-ng-model="gallEdits.newGall" placeholder="New Gallery Name">
+					</form>
+					<div data-ng-style="rotatePlus()">+</div>
+				</li>
 			</ul>
 		</div>
 		<div id="gallery" data-columns>

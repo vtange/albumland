@@ -106,7 +106,8 @@ body, .btn, {
 	padding: 5px;
 	
 	position: relative;
-	display:block;
+	display: flex;
+	flex-direction: row;
 	box-shadow: 0px -2px 2px rgba(0,0,0,0.1);
 	z-index: 3;
 	margin-left: 20px;
@@ -122,7 +123,7 @@ body, .btn, {
     z-index: -1;
 }
 #folders li:before{
-    left: -20px;
+    left: -25px;
 	border-top-left-radius: 5px;
 	box-shadow: -4px 0px 2px -2px rgba(0,0,0,0.1);
     transform:skewX(-35deg);
@@ -130,7 +131,7 @@ body, .btn, {
     -webkit-transform:skewX(-35deg);
 }
 #folders li:after{
-    right: -20px;
+    right: -25px;
 	border-top-right-radius: 5px;
 	box-shadow: 4px 0px 2px -2px rgba(0,0,0,0.2);
     transform:skewX(35deg);
@@ -141,6 +142,32 @@ body, .btn, {
     z-index: 9;
 }
 /*FOLDER SYSTEM*/
+/* NEW FOLDER */
+#new-gallery-btn{
+	cursor: pointer;
+}
+#new-gallery-btn > *{
+	transition:all 0.5s ease;
+}
+#new-gallery-btn > div{
+	position: relative;
+	/* when activated 
+	left:1rem;
+	transform: rotate(45deg);
+	*/
+}
+#new-gallery-btn > form{
+	width:0;
+}
+#new-gallery-btn input{
+	/* follow width of form, show when activated */
+	width:100%;
+	opacity: 0;
+	visibility: hidden;
+}
+
+/* NEW FOLDER */
+
 #grid[data-columns]::before {
 	content: '3 .column.size-1of3';
 }
