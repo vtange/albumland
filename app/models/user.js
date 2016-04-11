@@ -6,7 +6,7 @@ var gravatar = require('gravatar');
 
 // define the schema for our user model
 var userSchema = mongoose.Schema({
-
+	galleries        : [{ type: mongoose.Schema.Types.ObjectId, ref: 'Gallery' }],
     local            : {
         username     : String,
         email        : String,
