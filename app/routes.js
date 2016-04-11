@@ -68,7 +68,7 @@ module.exports = function(app) {
     // NEW GALLERY ========
     // =====================================
     app.post('/newGall', function(req, res) {
-		//if(req.user){
+		if(req.user){
 			var user = req.user;
 			var gall = new Gallery();
 			gall.name = req.body.newGall;
@@ -76,24 +76,24 @@ module.exports = function(app) {
 			gall.save(function(err){
 				if(err)
 					throw err;
-				//user.galleries.push(gall);
-				//user.save(function(err){
-				//	if(err)
-				//		throw err;
-				//	console.log('user has new gall');
-				//});
+				user.galleries.push(gall);
+				user.save(function(err){
+					if(err)
+						throw err;
+					console.log('user has new gall');
+				});
 				res.send(gall);
 			});
-		//}
-		//else{
-		//	res.redirect('/');
-		//}
+		}
+		else{
+			res.redirect('/');
+		}
 	});
     // =====================================
     // NEW IMAGE ========
     // =====================================
     app.post('/newImg', function(req, res) {
-		//if(req.user){
+		if(req.user){
 			var user = req.user;
 			User.findById(req.user.id).populate('galleries').exec(function(err,user){
 				//push string url
@@ -105,9 +105,9 @@ module.exports = function(app) {
 					res.send(req.body.newImg);
 				});
 			});
-		//}
-		//else{
-		//	res.redirect('/');
-		//}
+		}
+		else{
+			res.redirect('/');
+		}
 	});
 };
