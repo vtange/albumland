@@ -207,13 +207,15 @@ body, .btn, {
 	height: 200px;	/* TEMPORARY, would be determined by pic */
 	width:100%;
 	border-radius:2px;
-	box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
 	
 	background-color:#dededd;
 	background-position: center;
 	background-size: 45%;
 	background-repeat: no-repeat;
 	cursor: pointer;
+}
+.img img{
+	width:90%;
 }
 .img form{
 	position: relative;
@@ -244,6 +246,9 @@ body, .btn, {
 
 .img textarea:-ms-input-placeholder {  
    color: darkgreen;  
+}
+.img, .caption{
+	box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
 }
 /* caption under images */
 .caption{

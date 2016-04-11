@@ -41,7 +41,9 @@
 				</div>
 			</div>
 			<div class="column size-1of4 image-container" data-ng-repeat="link in galleries[gallEdits.currIndex].pics">
-				<div class="img"></div>
+				<div class="img">
+					<img data-ng-src="#" onerror="this.onerror=null; this.src='img/img_icon.png'"/>
+				</div>
 				<div class="caption">lorem ipsum gallum</div>
 			</div>
 		</div>
