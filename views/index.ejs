@@ -23,8 +23,8 @@
 			<ul>
 				<li class="active">Bewafwafwefwafewflah</li>
 				<li id="new-gallery-btn" data-ng-click="newGallForm()">
-					<form  id="form" data-ng-submit="">
-						<input type="text" name="townname" class="form-control" data-ng-model="gallEdits.newGall" placeholder="New Gallery Name">
+					<form  data-ng-style="widenForm()" data-ng-submit="newGall()">
+						<input data-ng-style="showInput()" type="text" class="form-control" data-ng-model="gallEdits.newGall" placeholder="New Gallery Name">
 					</form>
 					<div data-ng-style="rotatePlus()">+</div>
 				</li>
@@ -32,7 +32,7 @@
 		</div>
 		<div id="gallery" data-columns>
 			<div class="column size-1of4 image-container">
-				<div class="img"><p class="big-plus vert-centered">+</p></div>
+				<div class="img" data-ng-click="newImgLink()"><p class="big-plus vert-centered">+</p></div>
 			</div>
 			<div class="column size-1of4 image-container" data-ng-repeat="link in currentGallery">
 				<div class="img"></div>

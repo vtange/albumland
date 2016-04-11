@@ -158,12 +158,19 @@ body, .btn, {
 }
 #new-gallery-btn > form{
 	width:0;
+	/* when activated 
+	width:200px;
+	*/
 }
 #new-gallery-btn input{
 	/* follow width of form, show when activated */
 	width:100%;
 	opacity: 0;
 	visibility: hidden;
+	/* when activated 
+	opacity: 1;
+	visibility: visible;
+	*/
 }
 
 /* NEW FOLDER */
