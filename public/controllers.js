@@ -14,12 +14,11 @@ angular.module('AlbumApp').controller('autoLogger',['$scope', 'ActiveUser',funct
 /*-------------*/
 /*Page Specific Controls - Front Page   */
 /*-------------*/
-angular.module('AlbumApp').controller('FrontCtrl', ['$scope', function($scope){
+angular.module('AlbumApp').controller('FrontCtrl', ['$scope', 'ActiveUser', function($scope, ActiveUser){
 
 	/* STATE */ 
-
-	$scope.galleries = [{name:"Recently Added"}];
-    $scope.currentGallery = ["alpha","beta","delta","phi","gamma","theta"];
+	$scope.galleries = ActiveUser.user.galleries;
+    $scope.currentGallery = $scope.galleries[0].pics;
 
 }]);//end of controller
 

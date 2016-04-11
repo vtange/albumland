@@ -20,11 +20,13 @@ module.exports = function(app) {
 		}
 		else{
 			//render index page with "recent stuff" galleries
-			var galleries;
+			var front_page_user = {
+				galleries:[{name:"Recently Added",pics:[]},{name:"Popular",pics:[]}]
+			};
 			res.render('viewonly.ejs', {
 				title: app.title,
 				user : req.user, // get the user out of session and pass to template
-				package : JSON.stringify([req.user]) //send info to angular
+				package : JSON.stringify([front_page_user]) //send info to angular
 			}); // load the index.ejs file
 		}
     });
@@ -47,14 +49,16 @@ module.exports = function(app) {
 					}); // load the index.ejs file
 				}
 				else{
-					console.log(req.user.local.username);
 					if(req.params.USERNAME === req.user.local.username){
-						console.log(req.params.USERNAME);
 						//do the same as '/'
 						res.redirect("/");
 					}
 					else{
-						res.send("checked other user");
+						res.render('viewonly.ejs', {
+							title: app.title,
+							user : req.user, // get the user out of session and pass to template
+							package : JSON.stringify([user]) //send info to angular
+						}); // load the index.ejs file
 					}
 				}
 			}
