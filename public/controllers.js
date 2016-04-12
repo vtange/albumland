@@ -112,6 +112,10 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 	$scope.preventClose = function($event){
 		$event.stopPropagation() 
 	};
+	/* prevent ng-click from going up to parent elements */
+	$scope.selectGall = function(index){
+		$scope.gallEdits.currIndex = index;
+	};
 	/* submit new gallery form */
 	$scope.newGall = function(){
 		$http.post($window.location.href+'newGall',$scope.gallEdits).success(function(data){
