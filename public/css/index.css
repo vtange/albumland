@@ -205,7 +205,6 @@ body, .btn, {
 /* actual image */
 .img{
 	position: relative;
-	height: 200px;	/* TEMPORARY, would be determined by pic */
 	width:100%;
 	border-radius:2px;
 	
@@ -217,7 +216,7 @@ body, .btn, {
 }
 .img img{
 	text-align: center;
-	width:45%;
+	width:100%;
 }
 .img form{
 	position: relative;
@@ -260,6 +259,9 @@ body, .btn, {
 	opacity: 0.7;
 	background-color:#444;
 	color:white;
+}
+#new-img-btn{
+	height:200px;
 }
 .big-plus{
 	position: absolute;

@@ -34,7 +34,7 @@
 		</div>
 		<div id="gallery" data-columns>
 			<div class="column size-1of4 image-container">
-				<div class="img" data-ng-style="stockBkgrd()">
+				<div class="img" id="new-img-btn" data-ng-style="stockBkgrd()">
 					<p class="big-plus" data-ng-show="!newImgMode">+</p>
 					<form data-ng-style="textArea()">
 						<textarea data-ng-click="newImgForm()" data-ng-enter="newImgLink()" data-ng-blur="resetImgForm()" class="form-control" data-ng-model="gallEdits.newImg" placeholder="Paste a link to an image"></textarea>
@@ -44,7 +44,7 @@
 			<div class="column size-1of4 image-container" data-ng-repeat="link in galleries[gallEdits.currIndex].pics">
 				<div class="img">
 					<a class="boxclose" data-ng-click="deleteImgLink(link)"></a>
-					<img class="vert-centered" data-ng-src="{{link}}" onerror="this.onerror=null; this.src='img/img_icon.png'"/>
+					<img data-ng-src="{{link}}" onerror="this.onerror=null; this.src='img/img_icon.png'"/>
 				</div><!--CAPTION, add later
 				<div class="caption">lorem ipsum gallum</div>-->
 			</div>

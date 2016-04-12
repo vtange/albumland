@@ -117,8 +117,6 @@ var recentLinks = [];
 		if(req.user){
 			var user = req.user;
 			User.findById(req.user.id).populate('galleries').exec(function(err,user){
-				console.log(user);
-				console.log(req.body);
 				//push string url
 				user.galleries[req.body.currIndex].pics.splice(user.galleries[req.body.currIndex].pics.indexOf(req.body.delUrl),1);
 				//save gallery
