@@ -131,4 +131,25 @@ var recentLinks = [];
 			res.redirect('/');
 		}
 	});
+    // =====================================
+    // GALLERY NAME CHANGE ========
+    // =====================================
+    app.post('/nameChange', function(req, res) {
+		if(req.user){
+			var user = req.user;
+			User.findById(req.user.id).populate('galleries').exec(function(err,user){
+				//change name
+				user.galleries[req.body.currIndex].name = req.body.editGall;
+				//save gallery
+				user.galleries[req.body.currIndex].save(function(err){
+					if(err)
+						throw err;
+					res.send(req.body.editGall);
+				});
+			});
+		}
+		else{
+			res.redirect('/');
+		}
+	});
 };

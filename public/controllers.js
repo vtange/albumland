@@ -96,7 +96,8 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 	$scope.gallEdits = {
 		newGall:"",
 		newImg:"",
-		currIndex:0
+		currIndex:0,
+		editGall:""
 	};
 	$scope.galleries = ActiveUser.user.galleries;
 
@@ -173,12 +174,15 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 		return editingName === index;
 	};
 	$scope.cancelName = function(){
+		//unset text bar
 		editingName = null;
 	};
 	$scope.confirmName = function(){
 		$http.post($window.location.href+'nameChange',$scope.gallEdits).success(function(data){
 			//remove from galleries
 			ActiveUser.user.galleries[$scope.gallEdits.currIndex].name = data;
+			//unset text bar
+			editingName = null;
 		}).error(function(data){
 			alertify.error("Something went wrong while changing the gallery's name.");
 		});
