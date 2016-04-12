@@ -99,6 +99,7 @@ body, .btn, {
 /*folder color*/
 #folders li, #folders li:before, #folders li:after, #gallery{
 	background-color: #fff;
+	cursor: pointer;
 }
 
 #folders li{

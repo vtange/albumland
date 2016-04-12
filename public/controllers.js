@@ -15,18 +15,28 @@ angular.module('AlbumApp').controller('autoLogger',['$scope', 'ActiveUser',funct
 /*Page Specific Controls - Front Page   */
 /*-------------*/
 angular.module('AlbumApp').controller('FrontCtrl', ['$scope', 'ActiveUser', function($scope, ActiveUser){
+	/* STYLE */
+	/* ng-class = add "active' to gallery tab */
+	$scope.isCurrGall = function(index){
+		return $scope.o.currIndex === index;
+	}
 
 	/* STATE */ 
 	$scope.galleries = ActiveUser.user.galleries;
-	$scope.o = {index:0};
+	$scope.o = {currIndex:0};
 
+	/* select gallery */
+	$scope.selectGall = function(index){
+		$scope.o.currIndex = index;
+	};
+	
 }]);//end of controller
 
 
 /*-------------*/
 /*Page Specific Controls - Galleries   */
 /*-------------*/
-angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window', "ActiveUser", function($scope, $http, $window, ActiveUser){
+angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window', 'alertify', "ActiveUser", function($scope, $http, $window, alertify, ActiveUser){
 	/* STYLE */
 	/* ng-style = widen form when new Gall mode */
 	$scope.widenForm = function(){
@@ -76,7 +86,7 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 	/* ng-class = add "active' to gallery tab */
 	$scope.isCurrGall = function(index){
 		return $scope.gallEdits.currIndex === index;
-	}
+	};
 	
 	/* STATE */ 
 	$scope.newGallMode = false;
@@ -116,7 +126,7 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 	$scope.preventClose = function($event){
 		$event.stopPropagation() 
 	};
-	/* prevent ng-click from going up to parent elements */
+	/* select gallery */
 	$scope.selectGall = function(index){
 		$scope.gallEdits.currIndex = index;
 	};
@@ -129,7 +139,7 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 			});
 			$scope.newGallForm();
 		}).error(function(data){
-			console.error("Something wrong happened while making your new gallery.");
+			alertify.error("Something wrong happened while making your new gallery.");
 		});
 	};
 
@@ -141,17 +151,17 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 			ActiveUser.user.galleries[$scope.gallEdits.currIndex].pics.push(data);
 			$scope.resetImgForm();
 		}).error(function(data){
-			console.error("Something wrong happened while making your new gallery.");
+			alertify.error("Something went wrong while adding the picture.");
 		});
 	};
-	/* toggle new img link form */
+	/* delete img */
 	$scope.deleteImgLink = function(url){
 		$scope.gallEdits.delUrl = url;
 		$http.post($window.location.href+'delImg',$scope.gallEdits).success(function(data){
 			//remove from galleries
 			ActiveUser.user.galleries[$scope.gallEdits.currIndex].pics.splice(url,1);
 		}).error(function(data){
-			console.error("Something wrong happened while deleting the image.");
+			alertify.error("Something went wrong while deleting the picture.");
 		});
 	};
 }]);//end of controller

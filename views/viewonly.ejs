@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script> <!-- load angular -->
+	<script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.5/dist/js/ngAlertify.js"></script><!--CREDIT Brad Berger & CONTRIBUTORS-->
 	<script
 			  src="https://code.jquery.com/jquery-2.2.3.min.js"
 			  integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
@@ -21,15 +22,15 @@
 	<div class="container" data-ng-controller="FrontCtrl">
 		<div id="folders">
 			<ul>
-				<li class="active" data-ng-repeat="gallery in galleries">{{gallery.name}}</li>
+				<li data-ng-repeat="gallery in galleries" data-ng-click="selectGall($index)" data-ng-class="{'active': isCurrGall($index)}" >{{gallery.name}}</li>
 			</ul>
 		</div>
 		<div id="gallery" data-columns>
-			<div class="column size-1of4 image-container" data-ng-repeat="link in galleries[o.index].pics">
+			<div class="column size-1of4 image-container" data-ng-repeat="link in galleries[o.currIndex].pics">
 				<div class="img">
 					<img data-ng-src="{{link}}" onerror="this.onerror=null; this.src='img/img_icon.png'"/>
-				</div>
-				<div class="caption">lorem ipsum gallum</div>
+				</div><!--CAPTION, add later
+				<div class="caption">lorem ipsum gallum</div>-->
 			</div>
 		</div>
 	</div>
