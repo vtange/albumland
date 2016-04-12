@@ -280,6 +280,9 @@ body, .btn, {
 a:hover{
     text-decoration: none;
 }
+#folders a.boxclose{
+	padding-left:10px;
+}
 .img a.boxclose{
 	transition: all 0.5s ease;
 	opacity:0;

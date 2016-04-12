@@ -187,6 +187,21 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 			alertify.error("Something went wrong while changing the gallery's name.");
 		});
 	};
+	$scope.deleteGall = function(index){
+		alertify.okBtn("Yes").cancelBtn("No").confirm("Are you sure you want to delete the '"+$scope.gallEdits.editGall+"' gallery?", function (ev) {
+			ev.preventDefault();
+			$http.post($window.location.href+'delGall',$scope.gallEdits).success(function(data){
+				//unset text bar
+				editingName = null;
+				//remove from galleries
+				ActiveUser.user.galleries.splice($scope.gallEdits.currIndex,1);
+			}).error(function(data){
+				alertify.error("Something went wrong while deleting the gallery.");
+			});
+		}, function(ev) {
+			  ev.preventDefault();
+		});
+	};
 }]);//end of controller
 
 Array.prototype.getFirstIndexThat = function(test) {

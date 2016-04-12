@@ -26,6 +26,7 @@
 				<li data-ng-repeat="gallery in galleries" data-ng-click="selectGall($index)" data-ng-class="{'active': isCurrGall($index)}" >
 					<span data-ng-if="!editingName($index)" data-ng-dblclick="editName($index, gallery.name)">{{gallery.name}}</span>
 					<input data-ng-if="editingName($index)" data-ng-enter="confirmName()" data-ng-blur="cancelName()" type="text" class="form-control" data-ng-model="gallEdits.editGall" placeholder="New Gallery Name">
+					<a class="boxclose" data-ng-if="editingName($index)" data-ng-click="deleteGall($index)"></a>
 				</li>
 				<li id="new-gallery-btn" data-ng-click="newGallForm()">
 					<form  data-ng-style="widenForm()" data-ng-submit="newGall()">

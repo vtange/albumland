@@ -132,6 +132,27 @@ var recentLinks = [];
 		}
 	});
     // =====================================
+    // DEL GALLERY ========
+    // =====================================
+    app.post('/delGall', function(req, res) {
+		if(req.user){
+			var user = req.user;
+			User.findById(req.user.id).populate('galleries').exec(function(err,user){
+				//delete gallery
+				user.galleries.splice(req.body.currIndex,1);
+				//save gallery
+				user.galleries[req.body.currIndex].save(function(err){
+					if(err)
+						throw err;
+					res.send(200);
+				});
+			});
+		}
+		else{
+			res.redirect('/');
+		}
+	});
+    // =====================================
     // GALLERY NAME CHANGE ========
     // =====================================
     app.post('/nameChange', function(req, res) {
