@@ -115,7 +115,11 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 	/* submit new gallery form */
 	$scope.newGall = function(){
 		$http.post($window.location.href+'newGall',$scope.gallEdits).success(function(data){
-			$scope.galleries.push(data.name);
+			$scope.galleries.push(data);
+			$scope.gallEdits.currIndex = $scope.galleries.getFirstIndexThat(function(gallery){
+				return gallery.name === data.name;
+			});
+			$scope.newGallForm();
 		}).error(function(data){
 			console.error("Something wrong happened while making your new gallery.");
 		});
@@ -123,11 +127,11 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 
 	/* submit new img link form */
 	$scope.newImgLink = function(){
-		console.log("hit enter");
 		//do a pre text check, alert if not good
 		$http.post($window.location.href+'newImg',$scope.gallEdits).success(function(data){
 			//push to galleries
-			console.log(data);
+			ActiveUser.user.galleries[$scope.gallEdits.currIndex].pics.push(data);
+			$scope.resetImgForm();
 		}).error(function(data){
 			console.error("Something wrong happened while making your new gallery.");
 		});
@@ -143,3 +147,14 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 		});
 	};
 }]);//end of controller
+
+Array.prototype.getFirstIndexThat = function(test) {
+
+    for(var i = 0; i < this.length; i++)
+    {
+        if (test(this[i])){
+			return i;
+		}
+    }
+	return null;
+}
