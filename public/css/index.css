@@ -231,7 +231,7 @@ body, .btn, {
 	background-color: inherit;
 	height:100%;
 	resize: none;
-	color
+	cursor: pointer;
 }
 .img textarea::-webkit-input-placeholder {
    color: darkgreen;
@@ -271,3 +271,24 @@ body, .btn, {
 	
 	color:seagreen;
 }
+/*----------*/
+/*-X-*/
+/*----------*/
+a:hover{
+    text-decoration: none;
+}
+a.boxclose{
+    position: absolute;
+	top:0;
+	right:15px;
+
+    cursor:pointer;
+    color: #777;
+    font-size: 3.5rem;
+    font-weight: bold;
+	z-index: 9;
+}
+.boxclose:before{
+    content: "×";
+}
+/* X */

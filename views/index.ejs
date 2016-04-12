@@ -42,9 +42,10 @@
 			</div>
 			<div class="column size-1of4 image-container" data-ng-repeat="link in galleries[gallEdits.currIndex].pics">
 				<div class="img">
-					<img class="vert-centered" data-ng-src="#" onerror="this.onerror=null; this.src='img/img_icon.png'"/>
-				</div>
-				<div class="caption">lorem ipsum gallum</div>
+					<a class="boxclose" data-ng-click="deleteImgLink(link)"></a>
+					<img class="vert-centered" data-ng-src="{{link}}" onerror="this.onerror=null; this.src='img/img_icon.png'"/>
+				</div><!--CAPTION, add later
+				<div class="caption">lorem ipsum gallum</div>-->
 			</div>
 		</div>
 	</div>

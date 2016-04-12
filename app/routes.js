@@ -35,7 +35,6 @@ module.exports = function(app) {
     // =====================================
     app.get('/see/:USERNAME', function(req, res) {
 		User.findOne({'local.username': req.params.USERNAME }).populate('galleries').exec(function(err,user){
-			console.log(user);
 			if(!user){
 				//render 404 page
 				res.send(404);

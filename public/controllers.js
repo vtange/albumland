@@ -121,7 +121,7 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 		});
 	};
 
-	/* toggle new img link form */
+	/* submit new img link form */
 	$scope.newImgLink = function(){
 		console.log("hit enter");
 		//do a pre text check, alert if not good
@@ -132,5 +132,14 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 			console.error("Something wrong happened while making your new gallery.");
 		});
 	};
-
+	/* toggle new img link form */
+	$scope.deleteImgLink = function(url){
+		var package = {url:url};
+		$http.delete($window.location.href+'delImg',package).success(function(data){
+			//remove from galleries
+			console.log(data);
+		}).error(function(data){
+			console.error("Something wrong happened while making your new gallery.");
+		});
+	};
 }]);//end of controller
