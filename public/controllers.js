@@ -149,7 +149,7 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 		$scope.gallEdits.delUrl = url;
 		$http.post($window.location.href+'delImg',$scope.gallEdits).success(function(data){
 			//remove from galleries
-			console.log(data);
+			ActiveUser.user.galleries[$scope.gallEdits.currIndex].pics.splice(url,1);
 		}).error(function(data){
 			console.error("Something wrong happened while deleting the image.");
 		});
