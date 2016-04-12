@@ -134,12 +134,12 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 	};
 	/* toggle new img link form */
 	$scope.deleteImgLink = function(url){
-		var package = {url:url};
-		$http.delete($window.location.href+'delImg',package).success(function(data){
+		$scope.gallEdits.delUrl = url;
+		$http.post($window.location.href+'delImg',$scope.gallEdits).success(function(data){
 			//remove from galleries
 			console.log(data);
 		}).error(function(data){
-			console.error("Something wrong happened while making your new gallery.");
+			console.error("Something wrong happened while deleting the image.");
 		});
 	};
 }]);//end of controller
