@@ -168,10 +168,21 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 	$scope.editName = function(index, currName){
 		$scope.gallEdits.editGall = currName;
 		editingName = index;
-	}
+	};
 	$scope.editingName = function(index){
 		return editingName === index;
-	}
+	};
+	$scope.cancelName = function(){
+		editingName = null;
+	};
+	$scope.confirmName = function(){
+		$http.post($window.location.href+'nameChange',$scope.gallEdits).success(function(data){
+			//remove from galleries
+			ActiveUser.user.galleries[$scope.gallEdits.currIndex].name = data;
+		}).error(function(data){
+			alertify.error("Something went wrong while changing the gallery's name.");
+		});
+	};
 }]);//end of controller
 
 Array.prototype.getFirstIndexThat = function(test) {
