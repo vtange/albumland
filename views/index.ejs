@@ -23,7 +23,10 @@
 	<div class="container" data-ng-controller="MainCtrl">
 		<div id="folders">
 			<ul>
-				<li data-ng-repeat="gallery in galleries" data-ng-click="selectGall($index)" data-ng-class="{'active': isCurrGall($index)}" >{{gallery.name}}</li>
+				<li data-ng-repeat="gallery in galleries" data-ng-click="selectGall($index)" data-ng-class="{'active': isCurrGall($index)}" >
+					<span data-ng-if="!editingName($index)" data-ng-dblclick="editName($index, gallery.name)">{{gallery.name}}</span>
+					<input data-ng-if="editingName($index)" type="text" class="form-control" data-ng-model="gallEdits.editGall" placeholder="New Gallery Name">
+				</li>
 				<li id="new-gallery-btn" data-ng-click="newGallForm()">
 					<form  data-ng-style="widenForm()" data-ng-submit="newGall()">
 						<input data-ng-style="showInput()" data-ng-click="preventClose($event)" type="text" class="form-control" data-ng-model="gallEdits.newGall" placeholder="New Gallery Name">

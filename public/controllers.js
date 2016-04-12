@@ -164,6 +164,14 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 			alertify.error("Something went wrong while deleting the picture.");
 		});
 	};
+	var editingName = null;
+	$scope.editName = function(index, currName){
+		$scope.gallEdits.editGall = currName;
+		editingName = index;
+	}
+	$scope.editingName = function(index){
+		return editingName === index;
+	}
 }]);//end of controller
 
 Array.prototype.getFirstIndexThat = function(test) {
