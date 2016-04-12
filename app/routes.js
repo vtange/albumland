@@ -3,7 +3,7 @@ var Gallery = require('./models/gallery.js');
 
 // app/routes.js
 module.exports = function(app) {
-
+var recentLinks = [];
     // =====================================
     // HOME PAGE (with login links) ========
     // =====================================
@@ -21,7 +21,7 @@ module.exports = function(app) {
 		else{
 			//render index page with "recent stuff" galleries
 			var front_page_user = {
-				galleries:[{name:"Recently Added",pics:[]},{name:"Popular",pics:[]}]
+				galleries:[{name:"Recently Added",pics:recentLinks},{name:"Popular",pics:[]}]
 			};
 			res.render('viewonly.ejs', {
 				title: app.title,
@@ -101,6 +101,7 @@ module.exports = function(app) {
 				user.galleries[req.body.currIndex].save(function(err){
 					if(err)
 						throw err;
+					recentLinks.push(req.body.newImg);
 					res.send(req.body.newImg);
 				});
 			});
