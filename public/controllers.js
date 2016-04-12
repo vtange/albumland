@@ -73,7 +73,11 @@ angular.module('AlbumApp').controller('MainCtrl', ['$scope', '$http', '$window',
 			return { "background-image":"none" };
 		}
 	};
-
+	/* ng-class = add "active' to gallery tab */
+	$scope.isCurrGall = function(index){
+		return $scope.gallEdits.currIndex === index;
+	}
+	
 	/* STATE */ 
 	$scope.newGallMode = false;
 	$scope.newImgMode = false;
