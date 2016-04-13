@@ -33,7 +33,7 @@ var recentLinks = [];
     // =====================================
     // SOMEONE'S PAGE ========
     // =====================================
-    app.get('/see/:USERNAME', function(req, res) {
+    app.get('/:USERNAME', function(req, res) {
 		User.findOne({'local.username': req.params.USERNAME }).populate('galleries').exec(function(err,user){
 			if(!user){
 				//render 404 page
