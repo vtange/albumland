@@ -1,5 +1,6 @@
 ![](http://res.cloudinary.com/dmj8qtant/image/upload/c_scale,w_600/v1461262068/hrmewamnwo9vij01w212.png)
 # albumland
+Client can add/remove Galleries, and within them add/remove Images (based on link). Can see other users' collections based on username.
 
 ## Tech
 Express, EJS, MongoDB, AngularJS (ngAlertify, NgEnter), JQuery, Salvatorre
